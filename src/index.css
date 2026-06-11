@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-slate-100);
+  color: var(--color-slate-800);
+  -webkit-font-smoothing: antialiased;
+}
+
+@utility input {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-slate-300);
+  background: white;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2.5);
+  font-size: var(--text-sm);
+  &:focus {
+    outline: 2px solid var(--color-indigo-400);
+    outline-offset: -1px;
+  }
+  &:disabled {
+    background: var(--color-slate-100);
+  }
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--spacing) * 1.5);
+  border-radius: var(--radius-md);
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@utility btn-primary {
+  @apply btn;
+  background: var(--color-indigo-600);
+  color: white;
+  &:hover { background: var(--color-indigo-700); }
+}
+
+@utility btn-secondary {
+  @apply btn;
+  background: white;
+  border: 1px solid var(--color-slate-300);
+  color: var(--color-slate-700);
+  &:hover { background: var(--color-slate-50); }
+}
+
+@utility btn-danger {
+  @apply btn;
+  background: var(--color-rose-600);
+  color: white;
+  &:hover { background: var(--color-rose-700); }
+}
+
+@utility card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-slate-200);
+  background: white;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+@utility label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-slate-500);
+  margin-bottom: calc(var(--spacing) * 1);
+}
