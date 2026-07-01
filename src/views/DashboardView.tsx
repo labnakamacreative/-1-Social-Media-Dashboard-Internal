@@ -8,6 +8,8 @@ import {
 } from "../logic/rules";
 import { getMetricValue } from "../logic/analysis";
 import { StatCard, StatusBadge, fmtNum } from "../components/ui";
+import { AudioPlayer } from "../components/AudioPlayer";
+import sambutanFounder from "../assets/media/sambutan-founder.mp3";
 
 export function DashboardView({ onOpen, goTo }: { onOpen: (id: string) => void; goTo: (v: ViewKey) => void }) {
   const app = useApp();
@@ -55,6 +57,21 @@ export function DashboardView({ onOpen, goTo }: { onOpen: (id: string) => void; 
       <div className="mb-4">
         <h1 className="text-xl font-bold">Dashboard — {app.config.brandName}</h1>
         <p className="text-sm text-slate-500">Ringkasan eksekutif. Goals: {app.config.primaryGoals.join(", ")}.</p>
+      </div>
+
+      <div className="card mb-5 border-indigo-200 bg-gradient-to-r from-indigo-50 to-white p-4">
+        <div className="mb-2 flex items-center gap-2">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 text-xs font-bold text-white">♪</span>
+          <h2 className="text-sm font-bold text-indigo-800">Sambutan Founder</h2>
+        </div>
+        <p className="mb-3 text-xs text-slate-500">
+          Dengarkan sambutan pembuka dari founder sebelum mulai bekerja di dashboard ini.
+        </p>
+        <AudioPlayer
+          src={sambutanFounder}
+          title="Sambutan Founder"
+          subtitle={`Selamat datang di ${app.config.brandName}`}
+        />
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4 mb-5">
